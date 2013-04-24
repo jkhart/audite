@@ -28,15 +28,15 @@ VALUE rb_mpg123_new(VALUE klass, VALUE filename) {
   printf("Made it: 4\n");
   mpg123_param(mh, MPG123_ADD_FLAGS, MPG123_FORCE_FLOAT, 0.);
   printf("mpg123_open is: ");
-  printf("%s", mpg123_open(mh, (char*) RSTRING_PTR(filename)));
+  printf("%d", mpg123_open(mh, (char*) RSTRING_PTR(filename)));
   printf("\n");
 
   printf("mpg123_getformat is: ");
-  printf("%s", mpg123_getformat(mh, &rate, &channels, &encoding));
+  printf("%d", mpg123_getformat(mh, &rate, &channels, &encoding));
   printf("\n");
 
   printf("MPG123_OK is: ");
-  printf("%s", MPG123_OK);
+  printf("%d", MPG123_OK);
   printf("\n");
 
   if (mpg123_open(mh, (char*) RSTRING_PTR(filename)) != MPG123_OK ||
