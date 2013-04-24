@@ -13,32 +13,33 @@ void cleanup(mpg123_handle *mh)
 static VALUE rb_cMpg123;
 
 VALUE rb_mpg123_new(VALUE klass, VALUE filename) {
+  printf("Made it: 1");
   int err = MPG123_OK;
   mpg123_handle *mh;
   VALUE mpg123;
   long rate;
   int channels, encoding;
-
+  printf("Made it: 2");
   Check_Type(filename, T_STRING);
-
+  printf("Made it: 3");
   if ((mh = mpg123_new(NULL, &err)) == NULL) {
     rb_raise(rb_eStandardError, "%s", mpg123_plain_strerror(err));
   }
-
+  printf("Made it: 4");
   mpg123_param(mh, MPG123_ADD_FLAGS, MPG123_FORCE_FLOAT, 0.);
 
   if (mpg123_open(mh, (char*) RSTRING_PTR(filename)) != MPG123_OK ||
       mpg123_getformat(mh, &rate, &channels, &encoding) != MPG123_OK) {
     rb_raise(rb_eStandardError, "%s", mpg123_strerror(mh));
   }
-
+  printf("Made it: 5");
   if (encoding != MPG123_ENC_FLOAT_32) {
     rb_raise(rb_eStandardError, "bad encoding");
   }
-
+  printf("Made it: 6");
   mpg123_format_none(mh);
   mpg123_format(mh, rate, channels, encoding);
-
+  printf("Made it: 7");
   return Data_Wrap_Struct(rb_cMpg123, 0, cleanup, mh);
 }
 
