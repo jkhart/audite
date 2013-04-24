@@ -149,7 +149,7 @@ void Init_mpg123(void) {
 
   rb_cMpg123 = rb_define_class("Mpg123", rb_cObject);
 
-  rb_define_singleton_method(rb_cMpg123, "new", rb_mpg123_new, 1);
+  rb_define_singleton_method(rb_cMpg123, "new", rb_mpg123_new, 2);
 
   rb_define_method(rb_cMpg123, "close", rb_mpg123_close, 0);
   rb_define_method(rb_cMpg123, "read", rb_mpg123_read, 1);
