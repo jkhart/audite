@@ -118,7 +118,7 @@ VALUE rb_mpg123_timeframe(VALUE self, VALUE seconds)
 
 void Init_mpg123(void) {
   int err = MPG123_OK;
-
+  printf("here!")
   err = mpg123_init();
 
   if (err != MPG123_OK) {
