@@ -16,23 +16,26 @@ VALUE rb_mpg123_new(VALUE klass, VALUE filename) {
   printf("Made it: 1\n");
   int err = MPG123_OK;
   mpg123_handle *mh;
-  printf("mf: "); printf("%d", mh); printf("\n");
+  printf("mh: "); printf("%d", mh); printf("\n");
   VALUE mpg123;
   long rate;
   int channels, encoding;
   printf("Made it: 2\n");
+  printf("encoding: "); printf("%d", encoding); printf("\n");
   Check_Type(filename, T_STRING);
   printf("Made it: 3\n");
+  printf("encoding: "); printf("%d", encoding); printf("\n");
   if ((mh = mpg123_new(NULL, &err)) == NULL) {
     rb_raise(rb_eStandardError, "%s", mpg123_plain_strerror(err));
   }
   printf("Made it: 4\n");
+  printf("encoding: "); printf("%d", encoding); printf("\n");
   mpg123_param(mh, MPG123_ADD_FLAGS, MPG123_FORCE_FLOAT, 0.);
   printf("mpg123_open is: ");
   printf("%d", mpg123_open(mh, (char*) RSTRING_PTR(filename)));
   printf("\n");
 
-  printf("mf: "); printf("%d", mh); printf("\n");
+  printf("mh: "); printf("%d", mh); printf("\n");
   printf("rate: "); printf("%d", rate); printf("\n");
   printf("channels: "); printf("%d", channels); printf("\n");
   printf("encoding: "); printf("%d", encoding); printf("\n");
