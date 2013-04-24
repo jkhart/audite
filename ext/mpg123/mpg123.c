@@ -20,6 +20,7 @@ VALUE rb_mpg123_new(VALUE klass, VALUE filename) {
   VALUE mpg123;
   long rate;
   int channels, encoding;
+  encoding = 16
   printf("Made it: 2\n");
   printf("encoding: "); printf("%d", encoding); printf("\n");
   Check_Type(filename, T_STRING);
