@@ -13,6 +13,7 @@ void cleanup(mpg123_handle *mh)
 static VALUE rb_cMpg123;
 
 VALUE rb_mpg123_new(VALUE klass, VALUE filename) {
+  printf("mf: "); printf("%d", mh); printf("\n");
   printf("Made it: 1\n");
   int err = MPG123_OK;
   mpg123_handle *mh;
