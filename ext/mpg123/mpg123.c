@@ -12,13 +12,14 @@ void cleanup(mpg123_handle *mh)
 
 static VALUE rb_cMpg123;
 
-VALUE rb_mpg123_new(VALUE klass, VALUE filename) {
+VALUE rb_mpg123_new(VALUE klass, VALUE filename, VALUE decideRate) {
   printf("Made it: 1\n");
   int err = MPG123_OK;
   mpg123_handle *mh;
   printf("mh: "); printf("%d", mh); printf("\n");
   VALUE mpg123;
   long rate;
+  rate = decideRate;
   printf("rate: "); printf("%d", rate); printf("\n");
   int channels, encoding;
   printf("Made it: 2\n");
