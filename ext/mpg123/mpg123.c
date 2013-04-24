@@ -32,9 +32,9 @@ VALUE rb_mpg123_new(VALUE klass, VALUE filename) {
   printf("\n");
 
   printf("mf: "); printf("%s", mf); printf("\n");
-  printf("rate: "); printf("%s", rate); printf("\n");
-  printf("channels: "); printf("%s", channels); printf("\n");
-  printf("encoding: "); printf("%s", encoding); printf("\n");
+  printf("rate: "); printf("%d", rate); printf("\n");
+  printf("channels: "); printf("%d", channels); printf("\n");
+  printf("encoding: "); printf("%d", encoding); printf("\n");
 
   printf("mpg123_getformat is: ");
   printf("%d", mpg123_getformat(mh, &rate, &channels, &encoding));
